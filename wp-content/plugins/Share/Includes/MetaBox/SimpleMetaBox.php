@@ -12,7 +12,7 @@ class SimpleMetaBox {
      * them in form.
      */
 
-    private $formFields = array(
+    protected $formFields = array(
     );
     //add template for create action 
     protected $template = '';
@@ -39,7 +39,7 @@ class SimpleMetaBox {
      * to equal vield
      */
 
-    protected function iteratePostFields(callable $callback) {
+    protected function iteratePostFields( $callback) {
 
         foreach ($this->formFields as $field) {
             if (filter_input(INPUT_POST, $field)) {

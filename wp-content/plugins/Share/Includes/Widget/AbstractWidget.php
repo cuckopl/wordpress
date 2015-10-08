@@ -19,9 +19,7 @@ abstract class AbstractWidget extends \WP_Widget implements \Share\Includes\Widg
     }
 
     protected function renderView($file, array $vars) {
-        if ($this->viewRenderer === null) {
-            $this->viewRenderer = new \Share\Includes\View\ViewRendererClass($file, $vars);
-        }
+        $this->viewRenderer = new \Share\Includes\View\ViewRendererClass($file, $vars);
         return $this->viewRenderer->render();
     }
 

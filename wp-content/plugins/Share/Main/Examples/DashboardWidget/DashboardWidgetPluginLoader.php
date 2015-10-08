@@ -14,8 +14,8 @@ class DashboardWidgetPluginLoader extends \Share\Includes\Plugin\PluginLoader {
     public function addWidget() {
         $dashboardWidget= new DahsboardWidget();
         return wp_add_dashboard_widget('dashboard_widget_1',
-                'Some info ',
-                array($dashboardWidget,'add'),
+                'RSS ',
+                array($dashboardWidget,'display'),
                 array($dashboardWidget,'setup'));
     }
 

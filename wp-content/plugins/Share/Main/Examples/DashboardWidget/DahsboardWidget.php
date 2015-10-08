@@ -4,7 +4,7 @@ namespace Share\Main\Examples\DashboardWidget;
 
 class DahsboardWidget {
 
-    public function add() {
+    public function display() {
 //load our widget option
         $boj_option = get_option('boj_dashboard_widget_rss ');
 //if option is empty set a default
@@ -36,7 +36,7 @@ class DahsboardWidget {
         $boj_rss_feed = get_option('boj_dashboard_widget_rss ');
         ?>
         <label for="feed">
-            RSS Feed URL: <input type="text"
+            RSS Feed URL:  <input type="text"
                                  name="boj_rss_feed" id="boj_rss_feed"
                                  value="<?php echo esc_url($boj_rss_feed); ?>"
                                  size="50" />

@@ -5,7 +5,7 @@ namespace Share\Main\Examples\RssWidget;
 class RssWidget extends \Share\Includes\Widget\AbstractWidget {
 
     public function __construct($id_base = '', $name = '', $widget_options = array(), $control_options = array()) {
-        return parent::__construct('RssWidget', 'Advanced Rss Widget', array('classname' => "\\Share\\Main\\RssWidget",
+        return parent::__construct('RssWidget', 'Advanced Rss Widget', array('classname' => "\\Share\\Main\\Examples\\RssWidget\\RssWidget",
                     'description' => 'ALA MA KOTA'), $control_options);
     }
 

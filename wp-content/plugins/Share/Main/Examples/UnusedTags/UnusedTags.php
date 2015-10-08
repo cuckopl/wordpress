@@ -24,12 +24,16 @@ class UnusedTags {
     }
 
     public function unusedTagsDoAction() {
+
         if (!$this->checkRequest(self::ACTION)) {
             return false;
         }
+
         $this->checkUserPrivilages('manage_options');
         $action = $this->checkRequest(self::ACTION);
+
         check_admin_referer('ala');
+
         $postData = (object) $_REQUEST;
         $result = $this->handleAction($action, $postData);
 
@@ -38,12 +42,12 @@ class UnusedTags {
         } else {
             add_action('admin_notices', array($this->actionHandler, 'error'));
         }
-
     }
 
     public function polCreateOptionPage() {
 
-//        utags-option-page-main
+        //utags-option-page-main
+
         $termsTable = new \Share\Includes\Model\TermsTable();
         $vars['UnusedTags'] = $termsTable->fetchUnusedTags();
         $vars['actionName'] = self::ACTION;
@@ -56,6 +60,7 @@ class UnusedTags {
      */
 
     private function checkRequest($name) {
+
         if (!isset($_REQUEST[$name])) {
             return false;
         }
@@ -82,9 +87,11 @@ class UnusedTags {
      */
 
     protected function handleAction($action, \stdClass $parameter) {
+
         if (!$this->actionHandler instanceof ActionHandlerInterface) {
             throw new \InvalidArgumentException('actionHandler must be instance of ActionHandlerInterface');
         }
+
         return $this->actionHandler->$action($parameter);
         //  return call_user_func(array($this->actionHandler, $action), $parameter);
     }

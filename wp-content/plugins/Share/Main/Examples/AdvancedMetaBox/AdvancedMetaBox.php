@@ -6,7 +6,7 @@ class AdvancedMetaBox extends \Share\Includes\MetaBox\SimpleMetaBox {
 
     const META_PREFIX = 'pol_mbe_';
 
-    private $formFields = array(
+    protected $formFields = array(
         self::META_PREFIX . 'image',
     );
     protected $template = '/advanced-meta-box/meta-box-content.php';

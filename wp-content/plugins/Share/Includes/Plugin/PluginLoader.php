@@ -10,10 +10,12 @@ class PluginLoader implements \Share\Includes\Interfaces\LoaderInterface {
 //make this better
     public function add_action($hook, $component, $callback) {
         $this->actions = $this->add($this->actions, $hook, $component, $callback);
+        return $this;
     }
 
     public function add_filter($hook, $component, $callback) {
         $this->filters = $this->add($this->filters, $hook, $component, $callback);
+        return $this;
     }
 
     private function add($hooks, $hook, $component, $callback) {
@@ -36,6 +38,10 @@ class PluginLoader implements \Share\Includes\Interfaces\LoaderInterface {
         foreach ($this->actions as $hook) {
             add_action($hook['hook'], array($hook['component'], $hook['callback']));
         }
+    }
+
+    public static function create() {
+        return new self;
     }
 
 }
