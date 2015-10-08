@@ -1,10 +1,11 @@
 <?php
-
 $resourceFolder = 'resources/';
 define("PLUGIN_PATH", __DIR__);
-define("PLUGIN_RESOURCE_PATH", __DIR__ . '/' . $resourceFolder);
+define("PLUGIN_RESOURCE_PATH", __DIR__.'/'.$resourceFolder);
 //start auto loader
-require_once __DIR__ . '/Includes/autoload.php';
+require_once __DIR__.'/Includes/autoload.php';
+require_once __DIR__.'/Includes/config.php';
+
 
 /**
  * @package Share
@@ -26,5 +27,7 @@ Share\PluginFactory\DashboardWidgetFactory::make()->run();
 Share\PluginFactory\AdvancedMetaBoxFactory::make()->run();
 Share\PluginFactory\UnusedTagsFactory::make()->run();
 
+$sitePraser = new Share\Main\Examples\SiteParser\SiteParser();
 
+$sitePraser->run();
 
