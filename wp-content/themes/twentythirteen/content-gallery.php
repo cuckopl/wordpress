@@ -18,7 +18,6 @@
 		</h1>
 		<?php endif; // is_single() ?>
 	</header><!-- .entry-header -->
-
 	<div class="entry-content">
 		<?php if ( is_single() || ! get_post_gallery() ) : ?>
 			<?php

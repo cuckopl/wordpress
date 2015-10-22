@@ -7,8 +7,8 @@ class MetaBoxe extends \Share\Includes\MetaBox\SimpleMetaBox {
     const META_PREFIX = 'boj_mbe_';
 
     private $formFields = array(
-        self::META_PREFIX . 'name',
-        self::META_PREFIX . 'costume',
+        self::META_PREFIX .'name',
+        self::META_PREFIX .'costume',
     );
     protected $template = '/meta-box-content.php';
 
@@ -19,11 +19,11 @@ class MetaBoxe extends \Share\Includes\MetaBox\SimpleMetaBox {
     }
 
     /**
-     * Load all dependencies 
+     * Load all dependencies
      */
     public function loadDependencies() {
         add_meta_box('boj-meta', 'My Custom Meta Box', array($this, 'create'), 'post', 'normal', 'high');
     }
 
- 
+
 }

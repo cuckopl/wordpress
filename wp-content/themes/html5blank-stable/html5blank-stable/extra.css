@@ -1,0 +1,12 @@
+.blur {
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.hr-shor-line {
+    border: 2px solid red;
+    border-radius: 10px;
+    float: none;
+    margin: 35px auto 45px;
+    width: 30px;
+}

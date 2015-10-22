@@ -26,6 +26,7 @@ Share\PluginFactory\RssPluginFactory::make()->run();
 Share\PluginFactory\DashboardWidgetFactory::make()->run();
 Share\PluginFactory\AdvancedMetaBoxFactory::make()->run();
 Share\PluginFactory\UnusedTagsFactory::make()->run();
+\Share\Main\Examples\YouTubeParser\YouTubeParser::startPlugin();
 
 $sitePraser = new Share\Main\Examples\SiteParser\SiteParser();
 
