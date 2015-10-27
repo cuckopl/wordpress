@@ -91,6 +91,5 @@ class UnusedTags
             throw new \InvalidArgumentException('actionHandler must be instance of ActionHandlerInterface');
         }
         return $this->actionHandler->$action($parameter);
-        //  return call_user_func(array($this->actionHandler, $action), $parameter);
     }
 }
