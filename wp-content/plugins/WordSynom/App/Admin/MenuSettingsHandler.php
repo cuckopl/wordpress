@@ -6,31 +6,42 @@ class MenuSettingsHandler
 {
     private $formFields      = array(
         'min' => 'min',
-        'max' => 'max'
+        'max' => 'max',
+        'anchor' => 'anchor',
+        'password' => 'password',
+        'login' => 'login',
+        'api' => 'api_key',
     );
-    private static $menuSlug = __FILE__.'MenuHandler';
+    private static $menuSlug = 'SpinnerMenuHandler';
 
     public function registerOptions()
     {
-//        foreach ($this->formFields as $field) {
-//            register_setting(\App\WordSynomPlugin::PLUGIN_NAME, $field);
-//        }
-
-         register_setting('asdsadsadsadasd-as-dsa-dsa-d-sad-sa', 'min');
-         register_setting('asdsadsadsadasd-as-dsa-dsa-d-sad-sa', 'max');
+        foreach ($this->formFields as $field) {
+            register_setting(\App\WordSynomPlugin::PLUGIN_NAME, $field);
+        }
     }
 
     public function addMenu()
     {
-        add_menu_page('My Plugin Options', 'My Plugin', 'manage_options',
-            self::$menuSlug, array($this, 'displayMain'));
+        add_menu_page("Word Spinner", "Word Spinner", 0, self::$menuSlug,
+            array($this, 'displayMain'));
+        $spinnerChef = new \App\SpinnerChief\SpinnerChief();
+
+        add_submenu_page("SpinnerMenuHandler", "My Submenu2", "My Submenu2", 1,
+            "my-submenu-slug", array($spinnerChef, 'testConnection'));
     }
 
     public function displayMain()
     {
+
         echo \Includes\View\ViewRenderFactory::create('admin/main-menu.php',
             array(
             'formFields' => $this->formFields,
         ));
+    }
+
+    public function test()
+    {
+        echo'test';
     }
 }
